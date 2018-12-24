@@ -60,7 +60,7 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
       alias($.task_statement, $.task),
       // alias($.terra_statement, $.terra),
       alias($.fspace_statement, $.fspace),
-      // alias($.struct_statement, $.struct),
+      alias($.struct_statement, $.struct),
       $.var_statement,
       $.copy_statement,
       $.fill_statement
@@ -170,19 +170,19 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
      '(',
      commaSep1($.region_field_identifier),
      ')'
-   ),
+    ),
 
-   task_constraint: $ => seq(
+    task_constraint: $ => seq(
      $.region_field_identifier,
      choice('*', '<='),
      $.region_field_identifier
-   ),
+    ),
 
-   region_field_identifier: $ => seq(
+    region_field_identifier: $ => seq(
      $.identifier,
      repeat(seq('.', $.identifier)),
      optional(seq('.', '{', commaSep1($.identifier), '}'))
-   ),
+    ),
 
     fspace_statement: $ => seq(
       'fspace',
@@ -207,6 +207,14 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
       alias($.identifier, $.name),
       ':',
       $._regent_type
+    ),
+
+    struct_statement: $ => seq(
+      'struct',
+      alias($.identifier, $.name),
+      '{',
+      sepBy(choice(';', ','), alias($.fspace_field, $.struct_field)),
+      '}'
     ),
 
     // fspace_identifier: $ => seq(

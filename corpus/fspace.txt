@@ -33,3 +33,23 @@ fspace edge(r : region(point)) {
     )
   )
 )
+
+==================
+struct statements
+==================
+
+struct point {
+  x : int2d,
+  y : double
+}
+
+
+---
+
+(program
+  (struct
+    (name)
+    (struct_field (name) (regent_primitive_type))
+    (struct_field (name) (regent_primitive_type))
+  )
+)
