@@ -1,0 +1,54 @@
+==================
+region types
+==================
+
+fspace test {
+  a : region(double),
+  b : region(edge(region_point))
+}
+
+---
+
+(program
+  (fspace
+    (fspace_name)
+    (fspace_field
+      (fspace_field_name)
+      (region_type (regent_primitive_type))
+    )
+    (fspace_field
+      (fspace_field_name)
+      (region_type (type_identifier))
+    )
+  )
+)
+
+==================
+ptr types
+==================
+
+fspace test {
+}
+
+---
+
+(program
+  (fspace
+    (fspace_name)
+  )
+)
+
+==================
+ispace types
+==================
+
+fspace test {
+}
+
+---
+
+(program
+  (fspace
+    (fspace_name)
+  )
+)

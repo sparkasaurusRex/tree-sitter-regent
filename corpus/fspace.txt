@@ -6,32 +6,27 @@ fspace point {
   x : int2d
 }
 
-fspace edge(r : region) {
-  left: ptr
+fspace edge(r : region(point)) {
+  left: ptr(point, r)
 }
 
-fspace dot(r : ptr) {
-}
 
 ---
 
 (program
   (fspace
     (fspace_name)
-    (fspace_field (fspace_field_name) (regent_type))
+    (fspace_field (fspace_field_name) (regent_primitive_type))
   )
   (fspace
     (fspace_name)
-    (fspace_argument_name)
-    (fspace_argument_type)
+    (fspace_argument
+      (name)
+      (region_type (type_identifier))
+    )
     (fspace_field
       (fspace_field_name)
-      (regent_type)
+      (ptr_type (type_identifier) (region_identifier))
     )
-  )
-  (fspace
-    (fspace_name)
-    (fspace_argument_name)
-    (fspace_argument_type)
   )
 )

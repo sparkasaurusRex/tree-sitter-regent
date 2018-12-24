@@ -2348,6 +2348,160 @@
         }
       ]
     },
+    "_regent_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "regent_primitive_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "region_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ptr_type"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          },
+          "named": true,
+          "value": "type_identifier"
+        }
+      ]
+    },
+    "region_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "region"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_regent_type"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "ptr_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ptr"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_regent_type"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          },
+          "named": true,
+          "value": "region_identifier"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "regent_primitive_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "bool"
+        },
+        {
+          "type": "STRING",
+          "value": "int"
+        },
+        {
+          "type": "STRING",
+          "value": "int8"
+        },
+        {
+          "type": "STRING",
+          "value": "int16"
+        },
+        {
+          "type": "STRING",
+          "value": "int32"
+        },
+        {
+          "type": "STRING",
+          "value": "uint"
+        },
+        {
+          "type": "STRING",
+          "value": "uint8"
+        },
+        {
+          "type": "STRING",
+          "value": "uint16"
+        },
+        {
+          "type": "STRING",
+          "value": "uint32"
+        },
+        {
+          "type": "STRING",
+          "value": "float"
+        },
+        {
+          "type": "STRING",
+          "value": "double"
+        },
+        {
+          "type": "STRING",
+          "value": "int1d"
+        },
+        {
+          "type": "STRING",
+          "value": "int2d"
+        },
+        {
+          "type": "STRING",
+          "value": "int3d"
+        },
+        {
+          "type": "STRING",
+          "value": "rect1d"
+        },
+        {
+          "type": "STRING",
+          "value": "rect2d"
+        },
+        {
+          "type": "STRING",
+          "value": "rect3d"
+        }
+      ]
+    },
     "fspace_statement": {
       "type": "SEQ",
       "members": [
@@ -2381,31 +2535,8 @@
                       "type": "SEQ",
                       "members": [
                         {
-                          "type": "SEQ",
-                          "members": [
-                            {
-                              "type": "ALIAS",
-                              "content": {
-                                "type": "SYMBOL",
-                                "name": "identifier"
-                              },
-                              "named": true,
-                              "value": "fspace_argument_name"
-                            },
-                            {
-                              "type": "STRING",
-                              "value": ":"
-                            },
-                            {
-                              "type": "ALIAS",
-                              "content": {
-                                "type": "SYMBOL",
-                                "name": "identifier"
-                              },
-                              "named": true,
-                              "value": "fspace_argument_type"
-                            }
-                          ]
+                          "type": "SYMBOL",
+                          "name": "fspace_argument"
                         },
                         {
                           "type": "REPEAT",
@@ -2417,31 +2548,8 @@
                                 "value": ","
                               },
                               {
-                                "type": "SEQ",
-                                "members": [
-                                  {
-                                    "type": "ALIAS",
-                                    "content": {
-                                      "type": "SYMBOL",
-                                      "name": "identifier"
-                                    },
-                                    "named": true,
-                                    "value": "fspace_argument_name"
-                                  },
-                                  {
-                                    "type": "STRING",
-                                    "value": ":"
-                                  },
-                                  {
-                                    "type": "ALIAS",
-                                    "content": {
-                                      "type": "SYMBOL",
-                                      "name": "identifier"
-                                    },
-                                    "named": true,
-                                    "value": "fspace_argument_type"
-                                  }
-                                ]
+                                "type": "SYMBOL",
+                                "name": "fspace_argument"
                               }
                             ]
                           }
@@ -2516,6 +2624,28 @@
         }
       ]
     },
+    "fspace_argument": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          },
+          "named": true,
+          "value": "name"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_regent_type"
+        }
+      ]
+    },
     "fspace_field": {
       "type": "SEQ",
       "members": [
@@ -2533,15 +2663,14 @@
           "value": ":"
         },
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "identifier"
-          },
-          "named": true,
-          "value": "regent_type"
+          "type": "SYMBOL",
+          "name": "_regent_type"
         }
       ]
+    },
+    "wild": {
+      "type": "STRING",
+      "value": "wild"
     }
   },
   "extras": [
