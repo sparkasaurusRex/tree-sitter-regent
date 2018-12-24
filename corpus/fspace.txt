@@ -1,0 +1,37 @@
+==================
+fspace statements
+==================
+
+fspace point {
+  x : int2d
+}
+
+fspace edge(r : region) {
+  left: ptr
+}
+
+fspace dot(r : ptr) {
+}
+
+---
+
+(program
+  (fspace
+    (fspace_name)
+    (fspace_field (fspace_field_name) (regent_type))
+  )
+  (fspace
+    (fspace_name)
+    (fspace_argument_name)
+    (fspace_argument_type)
+    (fspace_field
+      (fspace_field_name)
+      (regent_type)
+    )
+  )
+  (fspace
+    (fspace_name)
+    (fspace_argument_name)
+    (fspace_argument_type)
+  )
+)

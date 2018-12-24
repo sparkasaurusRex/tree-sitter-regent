@@ -1,0 +1,25 @@
+{
+  "name": "tree-sitter-regent",
+  "version": "0.1.0",
+  "description": "A parser for the Regent language",
+  "main": "index.js",
+  "scripts": {
+    "build": "tree-sitter generate && node-gyp build",
+    "test": "tree-sitter test"
+  },
+  "keywords": [
+    "tree-sitter",
+    "parser",
+    "regent"
+  ],
+  "author": "Ellis Hoag <ellis.sparky.hoag@gmail.com (https://github.com/sparkasaurusRex)",
+  "repository": "https://github.com/sparkasaurusRex/tree-sitter-regent",
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.12.1"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.13.15",
+    "tree-sitter-lua": "1.5.3"
+  }
+}
