@@ -1,36 +1,87 @@
 module.exports = grammar(require('tree-sitter-lua/grammar'), {
   name: 'regent',
 
+  // conflicts: $ => [
+  //   [$._regent_type, $.fspace_identifier]
+  // ],
+
   rules: {
 
-    program: $ => repeat(choice(
-      $._statement,
+    _statement: $ => choice(
+      alias($._expression, $.expression),
+
+      $.variable_declaration,
+      $.local_variable_declaration,
+
+      $.do_statement,
+      $.if_statement,
+      $.while_statement,
+      $.repeat_statement,
+      $.for_statement,
+      $.for_in_statement,
+
+      $.goto_statement,
+      $.break_statement,
+
+      $.label_statement,
+      $._empty_statement,
+
+      alias($.function_statement, $.function),
+      alias($.local_function_statement, $.local_function),
+      alias($.function_call_statement, $.function_call),
+
       $._regent_statement
-    )),
+    ),
+
+    _expression: $ => choice(
+      $.spread,
+      $._prefix,
+
+      $.next,
+
+      $.function_definition,
+
+      $.table,
+
+      $.binary_operation,
+      $.unary_operation,
+
+      $.string,
+      $.number,
+      $.nil,
+      $.true,
+      $.false,
+      $.identifier,
+
+      $._regent_expression
+    ),
 
     _regent_statement: $ => choice(
-      // alias($.task_statement, $.task),
+      alias($.task_statement, $.task),
       // alias($.terra_statement, $.terra),
       alias($.fspace_statement, $.fspace),
       // alias($.struct_statement, $.struct),
-      // TODO: var x = ...
-      // $.copy_statement,
-      // $.fill_statement
+      $.var_statement,
+      $.copy_statement,
+      $.fill_statement
     ),
 
-    // _regent_expression: $ => choice(
-    //   $.ispace,
-    //   $.region,
-    //   // Partition ops
-    //   // __demand
-    //   // __forbid
-    // ),
+    _regent_expression: $ => choice(
+      alias($.ispace_expression, $.ispace),
+      // alias($.region_expression, $.region),
+      // alias($.partition_expression, $.partition),
+      // alias($.image_expression, $.image),
+      // alias($.preimage_expression, $.preimage),
+      // __demand
+      // __forbid
+    ),
 
     _regent_type: $ => choice(
       $.regent_primitive_type,
       $.region_type,
       $.ptr_type,
       // $.ispace_type,
+      // $.fspace_identifier,
       alias($.identifier, $.type_identifier)
     ),
 
@@ -43,10 +94,28 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
 
     ptr_type: $ => seq(
       'ptr',
+      // optional(seq( // TODO
+        '(',
+        $._regent_type,
+        ',',
+        $.region_field_identifier, // TODO: Do I always need this?
+        ')'
+      // ))
+    ),
+
+    ispace_expression: $ => seq(
+      'ispace',
       '(',
       $._regent_type,
       ',',
-      alias($.identifier, $.region_identifier), // TODO: Do I always need this?
+      choice(
+        $.number,
+        commaSep1(seq(
+          '{',
+          commaSep1($.number),
+          '}'
+        ))
+      ),
       ')'
     ),
 
@@ -60,19 +129,64 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
       ...[1, 2, 3].map(n => `rect${n}d`)
     ),
 
-    // task_statement: $ => seq(
-    //   'task',
-    //   alias($.identifier, $.task_name),
-    //   '(',
-    //   ')',
-    //   'return',
-    //   'true',
-    //   'end'
-    // ),
+    task_statement: $ => seq(
+      'task',
+      alias($.identifier, $.name),
+      '(',
+      commaSep($.task_parameter),
+      ')',
+      optional(seq(':', $._regent_type)),
+      optional(seq(
+        'where',
+        commaSep1(choice(
+          $.task_privilege,
+          $.task_constraint
+        )),
+        'do'
+      )),
+      repeat($._statement),
+      optional($.return_statement),
+      'end'
+    ),
+
+    task_parameter: $ => seq(
+      alias($.identifier, $.name),
+      ':',
+      $._regent_type
+    ),
+
+    task_privilege: $ => seq(
+     repeat(choice(
+       // Privileges
+       'reads',
+       'writes',
+       seq('reduces', choice('+', '*', '-', '/', 'min', 'max')),
+       // Coherences
+       'exclusive',
+       'atomic',
+       'simultaneous',
+       'relaxed'
+     )),
+     '(',
+     commaSep1($.region_field_identifier),
+     ')'
+   ),
+
+   task_constraint: $ => seq(
+     $.region_field_identifier,
+     choice('*', '<='),
+     $.region_field_identifier
+   ),
+
+   region_field_identifier: $ => seq(
+     $.identifier,
+     repeat(seq('.', $.identifier)),
+     optional(seq('.', '{', commaSep1($.identifier), '}'))
+   ),
 
     fspace_statement: $ => seq(
       'fspace',
-      alias($.identifier, $.fspace_name),
+      alias($.identifier, $.name),
       optional(seq(
         '(',
         commaSep($.fspace_argument),
@@ -90,12 +204,46 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
     ),
 
     fspace_field: $ => seq(
-      alias($.identifier, $.fspace_field_name),
+      alias($.identifier, $.name),
       ':',
       $._regent_type
     ),
 
-    wild: $ => 'wild' // TODO: Figure out where to use
+    // fspace_identifier: $ => seq(
+    //   alias($.identifier, $.name),
+    //   '(',
+    //   commaSep1($._expression),
+    //   ')'
+    // ),
+
+    var_statement: $ => seq(
+      'var',
+      alias($.identifier, $.name),
+      optional(seq(':', $._regent_type)),
+      '=',
+      $._expression
+    ),
+
+    copy_statement: $ => seq(
+      'copy',
+      '(',
+      $.region_field_identifier,
+      ',',
+      $.region_field_identifier,
+      ')'
+    ),
+
+    fill_statement: $ => seq(
+      'fill',
+      '(',
+      $.region_field_identifier,
+      ',',
+      $._expression,
+      ')'
+    ),
+
+
+    wild: $ => 'wild' // TODO: Figure out where to use this
   }
 })
 

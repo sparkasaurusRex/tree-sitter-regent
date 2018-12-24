@@ -1,7 +1,110 @@
 ==================
-task statements
+Task statements
 ==================
+
+task no_params()
+  return true
+end
+
+task with_Params(x : double, y: double) : double
+  return x + y
+end
+
+task privileges()
+where
+  writes(x), reads reduces +(x),
+  atomic(x),
+  x <= x
+do
+  return false
+end
 
 ---
 
-(program)
+(program
+  (task
+    (name)
+    (return_statement (true))
+  )
+  (task
+    (name)
+    (task_parameter (name) (regent_primitive_type))
+    (task_parameter (name) (regent_primitive_type))
+    (regent_primitive_type)
+    (return_statement (binary_operation (identifier) (identifier)))
+  )
+  (task
+    (name)
+    (task_privilege (region_field_identifier (identifier)))
+    (task_privilege (region_field_identifier (identifier)))
+    (task_privilege (region_field_identifier (identifier)))
+    (task_constraint
+      (region_field_identifier (identifier))
+      (region_field_identifier (identifier))
+    )
+    (return_statement (false))
+  )
+)
+
+==================
+Var statements
+==================
+
+task foo()
+  var x = true
+  var x : double = 2.2
+end
+
+---
+
+(program
+  (task
+    (name)
+    (var_statement
+      (name)
+      (true)
+    )
+    (var_statement
+      (name)
+      (regent_primitive_type)
+      (number)
+    )
+  )
+)
+
+==================
+Copy/Fill statements
+==================
+
+task foo()
+  copy(x.{a,b}, y.{a,b})
+  fill(x.{a,b}, 0)
+end
+
+---
+
+(program
+  (task
+    (name)
+    (copy_statement
+      (region_field_identifier
+        (identifier)
+        (identifier)
+        (identifier)
+      )
+      (region_field_identifier
+        (identifier)
+        (identifier)
+        (identifier)
+      )
+    )
+    (fill_statement
+      (region_field_identifier
+        (identifier)
+        (identifier)
+        (identifier)
+      )
+      (number)
+    )
+  )
+)

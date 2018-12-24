@@ -4,22 +4,26 @@ region types
 
 fspace test {
   a : region(double),
-  b : region(edge(region_point))
+  b : region(edge)
+  -- b : region(edge(region_point))
+  -- TODO: fix type_identifier
 }
 
 ---
 
 (program
   (fspace
-    (fspace_name)
+    (name)
     (fspace_field
-      (fspace_field_name)
+      (name)
       (region_type (regent_primitive_type))
     )
     (fspace_field
-      (fspace_field_name)
+      (name)
       (region_type (type_identifier))
     )
+    (comment)
+    (comment)
   )
 )
 
@@ -34,7 +38,7 @@ fspace test {
 
 (program
   (fspace
-    (fspace_name)
+    (name)
   )
 )
 
@@ -49,6 +53,6 @@ fspace test {
 
 (program
   (fspace
-    (fspace_name)
+    (name)
   )
 )

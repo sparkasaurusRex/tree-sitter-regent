@@ -1,0 +1,24 @@
+==================
+ispace statements
+==================
+
+ispace(double, 5)
+
+ispace(int2d, {6, 6}, {1, 1})
+
+---
+
+(program
+  (expression
+    (ispace (regent_primitive_type) (number))
+  )
+  (expression
+    (ispace
+      (regent_primitive_type)
+      (number)
+      (number)
+      (number)
+      (number)
+    )
+  )
+)

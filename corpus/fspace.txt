@@ -15,18 +15,21 @@ fspace edge(r : region(point)) {
 
 (program
   (fspace
-    (fspace_name)
-    (fspace_field (fspace_field_name) (regent_primitive_type))
+    (name)
+    (fspace_field (name) (regent_primitive_type))
   )
   (fspace
-    (fspace_name)
+    (name)
     (fspace_argument
       (name)
       (region_type (type_identifier))
     )
     (fspace_field
-      (fspace_field_name)
-      (ptr_type (type_identifier) (region_identifier))
+      (name)
+      (ptr_type
+        (type_identifier)
+        (region_field_identifier (identifier))
+      )
     )
   )
 )
