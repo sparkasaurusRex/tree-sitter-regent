@@ -163,6 +163,7 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
     ),
 
     task_statement: $ => seq(
+      optional(alias($.task_annotation, $.annotation)),
       'task',
       alias($.identifier, $.name),
       '(',
@@ -180,6 +181,19 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
       repeat($._statement),
       optional($.return_statement),
       'end'
+    ),
+
+    task_annotation: $ => seq(
+      choice('__demand', '__forbid'),
+      '(',
+      choice(
+        '__leaf',
+        '__inner',
+        '__idempotent',
+        '__replicable',
+        '__inline'
+      ),
+      ')'
     ),
 
     task_parameter: $ => seq(

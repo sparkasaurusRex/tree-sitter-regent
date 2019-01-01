@@ -2,6 +2,7 @@
 Task statements
 ==================
 
+__demand(__leaf)
 task no_params()
   return true
 end
@@ -23,6 +24,7 @@ end
 
 (program
   (task
+    (annotation)
     (name)
     (return_statement (true))
   )

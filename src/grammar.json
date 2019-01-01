@@ -2959,6 +2959,23 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "task_annotation"
+              },
+              "named": true,
+              "value": "annotation"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "STRING",
           "value": "task"
         },
@@ -3119,6 +3136,57 @@
         {
           "type": "STRING",
           "value": "end"
+        }
+      ]
+    },
+    "task_annotation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "__demand"
+            },
+            {
+              "type": "STRING",
+              "value": "__forbid"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "__leaf"
+            },
+            {
+              "type": "STRING",
+              "value": "__inner"
+            },
+            {
+              "type": "STRING",
+              "value": "__idempotent"
+            },
+            {
+              "type": "STRING",
+              "value": "__replicable"
+            },
+            {
+              "type": "STRING",
+              "value": "__inline"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
         }
       ]
     },
