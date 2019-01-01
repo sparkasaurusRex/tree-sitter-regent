@@ -1,0 +1,27 @@
+==================
+Terra statements
+==================
+
+terra foo()
+  return true
+end
+
+terra bar(x : double, y : int)
+  return false
+end
+
+---
+
+(program
+  (terra
+    (name)
+    (return_statement (true))
+  )
+
+  (terra
+    (name)
+    (terra_parameter (name) (regent_primitive_type))
+    (terra_parameter (name) (regent_primitive_type))
+    (return_statement (false))
+  )
+)

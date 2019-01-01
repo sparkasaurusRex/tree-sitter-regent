@@ -58,7 +58,7 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
 
     _regent_statement: $ => choice(
       alias($.task_statement, $.task),
-      // alias($.terra_statement, $.terra),
+      alias($.terra_statement, $.terra),
       alias($.fspace_statement, $.fspace),
       alias($.struct_statement, $.struct),
       $.var_statement,
@@ -127,6 +127,17 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
       'double',
       ...[1, 2, 3].map(n => `int${n}d`),
       ...[1, 2, 3].map(n => `rect${n}d`)
+    ),
+
+    terra_statement: $ => seq(
+      'terra',
+      alias($.identifier, $.name),
+      '(',
+      commaSep(alias($.task_parameter, $.terra_parameter)),
+      ')',
+      repeat($._statement),
+      optional($.return_statement),
+      'end'
     ),
 
     task_statement: $ => seq(
