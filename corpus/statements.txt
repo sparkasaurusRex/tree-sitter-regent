@@ -1,0 +1,11 @@
+==================
+Annotation statements
+==================
+
+__demand(__parallel)
+
+---
+
+(program
+  (statement_annotation)
+)

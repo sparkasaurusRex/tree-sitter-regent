@@ -2383,6 +2383,10 @@
         {
           "type": "SYMBOL",
           "name": "fill_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "statement_annotation"
         }
       ]
     },
@@ -2959,23 +2963,6 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "ALIAS",
-              "content": {
-                "type": "SYMBOL",
-                "name": "task_annotation"
-              },
-              "named": true,
-              "value": "annotation"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
           "type": "STRING",
           "value": "task"
         },
@@ -3136,57 +3123,6 @@
         {
           "type": "STRING",
           "value": "end"
-        }
-      ]
-    },
-    "task_annotation": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "__demand"
-            },
-            {
-              "type": "STRING",
-              "value": "__forbid"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "__leaf"
-            },
-            {
-              "type": "STRING",
-              "value": "__inner"
-            },
-            {
-              "type": "STRING",
-              "value": "__idempotent"
-            },
-            {
-              "type": "STRING",
-              "value": "__replicable"
-            },
-            {
-              "type": "STRING",
-              "value": "__inline"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
         }
       ]
     },
@@ -3763,6 +3699,81 @@
         {
           "type": "SYMBOL",
           "name": "_expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "statement_annotation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "__demand"
+            },
+            {
+              "type": "STRING",
+              "value": "__forbid"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "__leaf"
+            },
+            {
+              "type": "STRING",
+              "value": "__inner"
+            },
+            {
+              "type": "STRING",
+              "value": "__idempotent"
+            },
+            {
+              "type": "STRING",
+              "value": "__replicable"
+            },
+            {
+              "type": "STRING",
+              "value": "__inline"
+            },
+            {
+              "type": "STRING",
+              "value": "__parallel"
+            },
+            {
+              "type": "STRING",
+              "value": "__vectorize"
+            },
+            {
+              "type": "STRING",
+              "value": "__spmd"
+            },
+            {
+              "type": "STRING",
+              "value": "__trace"
+            },
+            {
+              "type": "STRING",
+              "value": "__cuda"
+            },
+            {
+              "type": "STRING",
+              "value": "__openmp"
+            }
+          ]
         },
         {
           "type": "STRING",

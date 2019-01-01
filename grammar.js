@@ -63,7 +63,8 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
       alias($.struct_statement, $.struct),
       $.var_statement,
       $.copy_statement,
-      $.fill_statement
+      $.fill_statement,
+      $.statement_annotation
     ),
 
     _regent_expression: $ => choice(
@@ -71,9 +72,7 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
       // alias($.region_expression, $.region),
       alias($.partition_expression, $.partition),
       alias($.image_expression, $.image),
-      alias($.preimage_expression, $.preimage),
-      // __demand
-      // __forbid
+      alias($.preimage_expression, $.preimage)
     ),
 
     partition_expression: $ => seq(
@@ -163,7 +162,6 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
     ),
 
     task_statement: $ => seq(
-      optional(alias($.task_annotation, $.annotation)),
       'task',
       alias($.identifier, $.name),
       '(',
@@ -181,19 +179,6 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
       repeat($._statement),
       optional($.return_statement),
       'end'
-    ),
-
-    task_annotation: $ => seq(
-      choice('__demand', '__forbid'),
-      '(',
-      choice(
-        '__leaf',
-        '__inner',
-        '__idempotent',
-        '__replicable',
-        '__inline'
-      ),
-      ')'
     ),
 
     task_parameter: $ => seq(
@@ -297,6 +282,24 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
       ')'
     ),
 
+    statement_annotation: $ => seq(
+      choice('__demand', '__forbid'),
+      '(',
+      choice(
+        '__leaf',
+        '__inner',
+        '__idempotent',
+        '__replicable',
+        '__inline',
+        '__parallel',
+        '__vectorize',
+        '__spmd',
+        '__trace',
+        '__cuda',
+        '__openmp',
+      ),
+      ')'
+    ),
 
     wild: $ => 'wild' // TODO: Figure out where to use this
   }

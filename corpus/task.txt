@@ -23,8 +23,8 @@ end
 ---
 
 (program
+  (statement_annotation)
   (task
-    (annotation)
     (name)
     (return_statement (true))
   )
