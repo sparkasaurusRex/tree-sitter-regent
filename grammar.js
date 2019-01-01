@@ -69,11 +69,33 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
     _regent_expression: $ => choice(
       alias($.ispace_expression, $.ispace),
       // alias($.region_expression, $.region),
-      // alias($.partition_expression, $.partition),
-      // alias($.image_expression, $.image),
-      // alias($.preimage_expression, $.preimage),
+      alias($.partition_expression, $.partition),
+      alias($.image_expression, $.image),
+      alias($.preimage_expression, $.preimage),
       // __demand
       // __forbid
+    ),
+
+    partition_expression: $ => seq(
+      'partition',
+      '(',
+      optional(seq(choice('equal', 'disjoint', 'aliased'), ',')),
+      commaSep1($._expression),
+      ')'
+    ),
+
+    image_expression: $ => seq(
+      'image',
+      '(',
+      commaSep1($._expression),
+      ')'
+    ),
+
+    preimage_expression: $ => seq(
+      'preimage',
+      '(',
+      commaSep1($._expression),
+      ')'
     ),
 
     _regent_type: $ => choice(
