@@ -108,34 +108,3 @@ end
     )
   )
 )
-
-
-==================
-Partition expressions
-==================
-
-task foo()
-  var bar = partition(equal, r, color_space)
-  var bar = image(parent_region, source_partition, data_region.field)
-  var bar = preimage(parent_region, target_partition, data_region.field)
-end
-
----
-
-(program
-  (task
-    (name)
-    (var_statement
-      (name)
-      (partition (identifier) (identifier))
-    )
-    (var_statement
-      (name)
-      (image (identifier) (identifier) (identifier) (property_identifier))
-    )
-    (var_statement
-      (name)
-      (preimage (identifier) (identifier) (identifier) (property_identifier))
-    )
-  )
-)

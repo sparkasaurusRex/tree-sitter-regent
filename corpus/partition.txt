@@ -1,0 +1,21 @@
+==================
+Partition expressions
+==================
+
+partition(equal, r, color_space)
+image(parent_region, source_partition, data_region.field)
+preimage(parent_region, target_partition, data_region.field)
+
+---
+
+(program
+  (expression
+    (partition (identifier) (identifier))
+  )
+  (expression
+    (image (identifier) (identifier) (identifier) (property_identifier))
+  )
+  (expression
+    (preimage (identifier) (identifier) (identifier) (property_identifier))
+  )
+)
