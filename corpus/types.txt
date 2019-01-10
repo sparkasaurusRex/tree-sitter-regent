@@ -1,12 +1,40 @@
 ==================
+primitive types
+==================
+
+fspace test {
+  a : uint32;
+  b : &double;
+  c : int[128];
+}
+
+---
+
+(program
+  (fspace
+    (name)
+    (fspace_field
+      (name)
+      (regent_primitive_type)
+    )
+    (fspace_field
+      (name)
+      (regent_primitive_type)
+    )
+    (comment)
+    (comment)
+  )
+)
+
+
+==================
 region types
 ==================
 
 fspace test {
   a : region(double),
-  b : region(edge)
-  -- b : region(edge(region_point))
-  -- TODO: fix type_identifier
+  b : region(edge),
+  c : region(edge(region_point))
 }
 
 ---
@@ -22,8 +50,10 @@ fspace test {
       (name)
       (region_type (type_identifier))
     )
-    (comment)
-    (comment)
+    (fspace_field
+      (name)
+      (region_type (type_identifier (type_identifier)))
+    )
   )
 )
 
@@ -32,6 +62,8 @@ ptr types
 ==================
 
 fspace test {
+  a : ptr;
+  b : ptr(point, r);
 }
 
 ---
@@ -39,20 +71,13 @@ fspace test {
 (program
   (fspace
     (name)
-  )
-)
-
-==================
-ispace types
-==================
-
-fspace test {
-}
-
----
-
-(program
-  (fspace
-    (name)
+    (fspace_field
+      (name)
+      (pointer_type)
+    )
+    (fspace_field
+      (name)
+      (pointer_type (type_identifier) (region_field_identifier))
+    )
   )
 )

@@ -140,14 +140,18 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
       ')'
     ),
 
-    regent_primitive_type: $ => choice(
-      'bool',
-      ...['', 8, 16, 32].map(n => `int${n}`),
-      ...['', 8, 16, 32].map(n => `uint${n}`),
-      'float',
-      'double',
-      ...[1, 2, 3].map(n => `int${n}d`),
-      ...[1, 2, 3].map(n => `rect${n}d`)
+    regent_primitive_type: $ => seq(
+      optional('&'),
+      choice(
+        'bool',
+        ...['', 8, 16, 32].map(n => `int${n}`),
+        ...['', 8, 16, 32].map(n => `uint${n}`),
+        'float',
+        'double',
+        ...[1, 2, 3].map(n => `int${n}d`),
+        ...[1, 2, 3].map(n => `rect${n}d`)
+      ),
+      optional(seq('[', _expression, ']'))
     ),
 
     terra_statement: $ => seq(
