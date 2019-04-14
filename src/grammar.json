@@ -2795,75 +2795,117 @@
       ]
     },
     "regent_primitive_type": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "bool"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "&"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
-          "type": "STRING",
-          "value": "int"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "bool"
+            },
+            {
+              "type": "STRING",
+              "value": "int"
+            },
+            {
+              "type": "STRING",
+              "value": "int8"
+            },
+            {
+              "type": "STRING",
+              "value": "int16"
+            },
+            {
+              "type": "STRING",
+              "value": "int32"
+            },
+            {
+              "type": "STRING",
+              "value": "uint"
+            },
+            {
+              "type": "STRING",
+              "value": "uint8"
+            },
+            {
+              "type": "STRING",
+              "value": "uint16"
+            },
+            {
+              "type": "STRING",
+              "value": "uint32"
+            },
+            {
+              "type": "STRING",
+              "value": "float"
+            },
+            {
+              "type": "STRING",
+              "value": "double"
+            },
+            {
+              "type": "STRING",
+              "value": "int1d"
+            },
+            {
+              "type": "STRING",
+              "value": "int2d"
+            },
+            {
+              "type": "STRING",
+              "value": "int3d"
+            },
+            {
+              "type": "STRING",
+              "value": "rect1d"
+            },
+            {
+              "type": "STRING",
+              "value": "rect2d"
+            },
+            {
+              "type": "STRING",
+              "value": "rect3d"
+            }
+          ]
         },
         {
-          "type": "STRING",
-          "value": "int8"
-        },
-        {
-          "type": "STRING",
-          "value": "int16"
-        },
-        {
-          "type": "STRING",
-          "value": "int32"
-        },
-        {
-          "type": "STRING",
-          "value": "uint"
-        },
-        {
-          "type": "STRING",
-          "value": "uint8"
-        },
-        {
-          "type": "STRING",
-          "value": "uint16"
-        },
-        {
-          "type": "STRING",
-          "value": "uint32"
-        },
-        {
-          "type": "STRING",
-          "value": "float"
-        },
-        {
-          "type": "STRING",
-          "value": "double"
-        },
-        {
-          "type": "STRING",
-          "value": "int1d"
-        },
-        {
-          "type": "STRING",
-          "value": "int2d"
-        },
-        {
-          "type": "STRING",
-          "value": "int3d"
-        },
-        {
-          "type": "STRING",
-          "value": "rect1d"
-        },
-        {
-          "type": "STRING",
-          "value": "rect2d"
-        },
-        {
-          "type": "STRING",
-          "value": "rect3d"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "["
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_expression"
+                },
+                {
+                  "type": "STRING",
+                  "value": "]"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -3474,6 +3516,27 @@
           ]
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ";"
+                },
+                {
+                  "type": "STRING",
+                  "value": ","
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "STRING",
           "value": "}"
         }
@@ -3821,5 +3884,7 @@
   ],
   "inline": [
     "_statement"
-  ]
+  ],
+  "supertypes": []
 }
+

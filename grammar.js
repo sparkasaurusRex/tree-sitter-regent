@@ -151,7 +151,7 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
         ...[1, 2, 3].map(n => `int${n}d`),
         ...[1, 2, 3].map(n => `rect${n}d`)
       ),
-      optional(seq('[', _expression, ']'))
+      optional(seq('[', $._expression, ']'))
     ),
 
     terra_statement: $ => seq(
@@ -230,6 +230,7 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
       )),
       '{',
       sepBy(choice(';', ','), $.fspace_field),
+      optional(choice(';', ',')),
       '}'
     ),
 

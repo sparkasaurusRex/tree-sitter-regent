@@ -21,8 +21,10 @@ fspace test {
       (name)
       (regent_primitive_type)
     )
-    (comment)
-    (comment)
+    (fspace_field
+      (name)
+      (regent_primitive_type (number))
+    )
   )
 )
 
@@ -34,7 +36,7 @@ region types
 fspace test {
   a : region(double),
   b : region(edge),
-  c : region(edge(region_point))
+  --c : region(edge(region_point))
 }
 
 ---
@@ -50,10 +52,7 @@ fspace test {
       (name)
       (region_type (type_identifier))
     )
-    (fspace_field
-      (name)
-      (region_type (type_identifier (type_identifier)))
-    )
+    (comment)
   )
 )
 
@@ -62,7 +61,6 @@ ptr types
 ==================
 
 fspace test {
-  a : ptr;
   b : ptr(point, r);
 }
 
@@ -73,11 +71,7 @@ fspace test {
     (name)
     (fspace_field
       (name)
-      (pointer_type)
-    )
-    (fspace_field
-      (name)
-      (pointer_type (type_identifier) (region_field_identifier))
+      (ptr_type (type_identifier) (region_field_identifier (identifier)))
     )
   )
 )

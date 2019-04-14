@@ -1,0 +1,709 @@
+[
+  {
+    "type": "arguments",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "binary_operation",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "copy_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "do_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "else",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "elseif",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "field",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "fill_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "for_in_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "for_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "fspace",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "fspace_argument",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "fspace_field",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "function",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "function_call",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "function_definition",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "function_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "global_variable",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "goto_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "if_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "image",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ispace",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "label_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "local_function",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "local_variable_declaration",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "parameters",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "partition",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "preimage",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "program",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ptr_type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "regent_primitive_type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "region_field_identifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "region_type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "repeat_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "return_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "statement_annotation",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "struct",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "table",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "task",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "task_constraint",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "task_parameter",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "task_privilege",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "terra",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "unary_operation",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "var_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "variable_declaration",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "while_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "return",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "local",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "do",
+    "named": false
+  },
+  {
+    "type": "end",
+    "named": false
+  },
+  {
+    "type": "if",
+    "named": false
+  },
+  {
+    "type": "then",
+    "named": false
+  },
+  {
+    "type": "elseif",
+    "named": false
+  },
+  {
+    "type": "else",
+    "named": false
+  },
+  {
+    "type": "while",
+    "named": false
+  },
+  {
+    "type": "repeat",
+    "named": false
+  },
+  {
+    "type": "until",
+    "named": false
+  },
+  {
+    "type": "for",
+    "named": false
+  },
+  {
+    "type": "in",
+    "named": false
+  },
+  {
+    "type": "goto",
+    "named": false
+  },
+  {
+    "type": "break_statement",
+    "named": true
+  },
+  {
+    "type": "::",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "function",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "spread",
+    "named": true
+  },
+  {
+    "type": "self",
+    "named": true
+  },
+  {
+    "type": "next",
+    "named": true
+  },
+  {
+    "type": "_G",
+    "named": false
+  },
+  {
+    "type": "_VERSION",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  },
+  {
+    "type": "or",
+    "named": false
+  },
+  {
+    "type": "and",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
+    "type": "==",
+    "named": false
+  },
+  {
+    "type": "~=",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "~",
+    "named": false
+  },
+  {
+    "type": "&",
+    "named": false
+  },
+  {
+    "type": "<<",
+    "named": false
+  },
+  {
+    "type": ">>",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "//",
+    "named": false
+  },
+  {
+    "type": "%",
+    "named": false
+  },
+  {
+    "type": "..",
+    "named": false
+  },
+  {
+    "type": "^",
+    "named": false
+  },
+  {
+    "type": "not",
+    "named": false
+  },
+  {
+    "type": "#",
+    "named": false
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "nil",
+    "named": true
+  },
+  {
+    "type": "true",
+    "named": true
+  },
+  {
+    "type": "false",
+    "named": true
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "partition",
+    "named": false
+  },
+  {
+    "type": "equal",
+    "named": false
+  },
+  {
+    "type": "disjoint",
+    "named": false
+  },
+  {
+    "type": "aliased",
+    "named": false
+  },
+  {
+    "type": "image",
+    "named": false
+  },
+  {
+    "type": "preimage",
+    "named": false
+  },
+  {
+    "type": "region",
+    "named": false
+  },
+  {
+    "type": "ptr",
+    "named": false
+  },
+  {
+    "type": "ispace",
+    "named": false
+  },
+  {
+    "type": "bool",
+    "named": false
+  },
+  {
+    "type": "int",
+    "named": false
+  },
+  {
+    "type": "int8",
+    "named": false
+  },
+  {
+    "type": "int16",
+    "named": false
+  },
+  {
+    "type": "int32",
+    "named": false
+  },
+  {
+    "type": "uint",
+    "named": false
+  },
+  {
+    "type": "uint8",
+    "named": false
+  },
+  {
+    "type": "uint16",
+    "named": false
+  },
+  {
+    "type": "uint32",
+    "named": false
+  },
+  {
+    "type": "float",
+    "named": false
+  },
+  {
+    "type": "double",
+    "named": false
+  },
+  {
+    "type": "int1d",
+    "named": false
+  },
+  {
+    "type": "int2d",
+    "named": false
+  },
+  {
+    "type": "int3d",
+    "named": false
+  },
+  {
+    "type": "rect1d",
+    "named": false
+  },
+  {
+    "type": "rect2d",
+    "named": false
+  },
+  {
+    "type": "rect3d",
+    "named": false
+  },
+  {
+    "type": "terra",
+    "named": false
+  },
+  {
+    "type": "task",
+    "named": false
+  },
+  {
+    "type": "where",
+    "named": false
+  },
+  {
+    "type": "reads",
+    "named": false
+  },
+  {
+    "type": "writes",
+    "named": false
+  },
+  {
+    "type": "reduces",
+    "named": false
+  },
+  {
+    "type": "min",
+    "named": false
+  },
+  {
+    "type": "max",
+    "named": false
+  },
+  {
+    "type": "exclusive",
+    "named": false
+  },
+  {
+    "type": "atomic",
+    "named": false
+  },
+  {
+    "type": "simultaneous",
+    "named": false
+  },
+  {
+    "type": "relaxed",
+    "named": false
+  },
+  {
+    "type": "fspace",
+    "named": false
+  },
+  {
+    "type": "struct",
+    "named": false
+  },
+  {
+    "type": "var",
+    "named": false
+  },
+  {
+    "type": "copy",
+    "named": false
+  },
+  {
+    "type": "fill",
+    "named": false
+  },
+  {
+    "type": "__demand",
+    "named": false
+  },
+  {
+    "type": "__forbid",
+    "named": false
+  },
+  {
+    "type": "__leaf",
+    "named": false
+  },
+  {
+    "type": "__inner",
+    "named": false
+  },
+  {
+    "type": "__idempotent",
+    "named": false
+  },
+  {
+    "type": "__replicable",
+    "named": false
+  },
+  {
+    "type": "__inline",
+    "named": false
+  },
+  {
+    "type": "__parallel",
+    "named": false
+  },
+  {
+    "type": "__vectorize",
+    "named": false
+  },
+  {
+    "type": "__spmd",
+    "named": false
+  },
+  {
+    "type": "__trace",
+    "named": false
+  },
+  {
+    "type": "__cuda",
+    "named": false
+  },
+  {
+    "type": "__openmp",
+    "named": false
+  },
+  {
+    "type": "wild",
+    "named": true
+  }
+]
