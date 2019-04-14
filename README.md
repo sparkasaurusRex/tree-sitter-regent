@@ -1,4 +1,5 @@
 # Tree Sitter Regent
+[![Build Status](https://travis-ci.org/sparkasaurusRex/tree-sitter-regent.svg?branch=master)](https://travis-ci.org/sparkasaurusRex/tree-sitter-regent)
 
 ##### A parser for the Regent language
 
