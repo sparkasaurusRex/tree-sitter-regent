@@ -124,21 +124,21 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
       // ))
     ),
 
-    ispace_expression: $ => seq(
+    ispace_expression: $ => prec(2, seq(
       'ispace',
       '(',
       $._regent_type,
       ',',
       choice(
-        $.number,
+        $._expression,
         commaSep1(seq(
           '{',
-          commaSep1($.number),
+          commaSep1($._expression),
           '}'
         ))
       ),
       ')'
-    ),
+    )),
 
     regent_primitive_type: $ => seq(
       optional('&'),
@@ -295,7 +295,13 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
         '__inner',
         '__idempotent',
         '__replicable',
-        '__inline',
+        seq(
+          '__inline',
+          optional(seq(
+            ',',
+            $._expression
+          ))
+        ),
         '__parallel',
         '__vectorize',
         '__spmd',

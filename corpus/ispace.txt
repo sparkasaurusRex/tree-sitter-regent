@@ -2,7 +2,7 @@
 ispace statements
 ==================
 
-ispace(double, 5)
+ispace(double, numWays)
 
 ispace(int2d, {6, 6}, {1, 1})
 
@@ -10,7 +10,7 @@ ispace(int2d, {6, 6}, {1, 1})
 
 (program
   (expression
-    (ispace (regent_primitive_type) (number))
+    (ispace (regent_primitive_type) (identifier))
   )
   (expression
     (ispace

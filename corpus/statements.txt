@@ -3,9 +3,11 @@ Annotation statements
 ==================
 
 __demand(__parallel)
+__demand(__inline, foo())
 
 ---
 
 (program
   (statement_annotation)
+  (statement_annotation (function_call (identifier) (arguments)))
 )

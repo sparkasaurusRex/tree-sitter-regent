@@ -3,8 +3,7 @@ Partition expressions
 ==================
 
 partition(equal, r, color_space)
-image(parent_region, source_partition, data_region.field)
-preimage(parent_region, target_partition, data_region.field)
+partition(r.color, coloring)
 
 ---
 
@@ -13,8 +12,33 @@ preimage(parent_region, target_partition, data_region.field)
     (partition (identifier) (identifier))
   )
   (expression
+    (partition (identifier) (property_identifier) (identifier))
+  )
+)
+
+==================
+Image expressions
+==================
+
+image(parent_region, source_partition, data_region.field)
+
+---
+
+(program
+  (expression
     (image (identifier) (identifier) (identifier) (property_identifier))
   )
+)
+
+==================
+Preimage expressions
+==================
+
+preimage(parent_region, target_partition, data_region.field)
+
+---
+
+(program
   (expression
     (preimage (identifier) (identifier) (identifier) (property_identifier))
   )

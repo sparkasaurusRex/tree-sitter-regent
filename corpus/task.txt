@@ -54,7 +54,7 @@ Var statements
 
 task foo()
   var x = true
-  var x : double = 2.2
+  var x : double[12] = 2.2
 end
 
 ---
@@ -68,7 +68,7 @@ end
     )
     (var_statement
       (name)
-      (regent_primitive_type)
+      (regent_primitive_type (number))
       (number)
     )
   )

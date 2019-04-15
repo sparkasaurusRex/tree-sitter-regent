@@ -7,7 +7,7 @@ fspace point {
 }
 
 fspace edge(r : region(point)) {
-  left: ptr(point, r)
+  left: ptr(point, r);
 }
 
 
