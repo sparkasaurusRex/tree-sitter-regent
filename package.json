@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-regent",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "A parser for the Regent language",
   "main": "index.js",
   "scripts": {
