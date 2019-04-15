@@ -4,6 +4,7 @@
   "description": "A parser for the Regent language",
   "main": "index.js",
   "scripts": {
+    "install": "prebuild-install || node-gyp rebuild",
     "build": "tree-sitter generate && node-gyp build",
     "test": "tree-sitter test"
   },
@@ -16,9 +17,11 @@
   "repository": "https://github.com/sparkasaurusRex/tree-sitter-regent",
   "license": "MIT",
   "dependencies": {
-    "nan": "^2.12.1"
+    "nan": "^2.12.1",
+    "prebuild-install": "^5.2.5"
   },
   "devDependencies": {
+    "prebuild": "^8.2.1",
     "tree-sitter-cli": "^0.15.1",
     "tree-sitter-lua": "1.5.3"
   }
