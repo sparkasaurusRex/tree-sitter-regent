@@ -3848,6 +3848,10 @@
             },
             {
               "type": "STRING",
+              "value": "__index_launch"
+            },
+            {
+              "type": "STRING",
               "value": "__vectorize"
             },
             {

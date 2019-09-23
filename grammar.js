@@ -303,6 +303,7 @@ module.exports = grammar(require('tree-sitter-lua/grammar'), {
           ))
         ),
         '__parallel',
+        '__index_launch',
         '__vectorize',
         '__spmd',
         '__trace',
