@@ -17,12 +17,12 @@
   "repository": "https://github.com/sparkasaurusRex/tree-sitter-regent",
   "license": "MIT",
   "dependencies": {
-    "nan": "^2.12.1",
-    "prebuild-install": "^5.2.5"
+    "nan": "^2.14.0",
+    "prebuild-install": "^5.3.2"
   },
   "devDependencies": {
-    "prebuild": "^8.2.1",
-    "tree-sitter-cli": "0.14.5",
-    "tree-sitter-lua": "1.5.3"
+    "prebuild": "^9.1.0",
+    "tree-sitter-cli": "0.15.9",
+    "tree-sitter-lua": "1.6.0"
   }
 }
